@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple</title>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+
+    <!-- Boostrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Plateformes IFB</h1>
+        <p>Exemple pour le site web de l'IFB. Cette carte n'est pas représentative. </p>
+        <div id="mapid" style="height: 500px;"></div>
+    </div>
+    
+
+    <script>
+
+        var map = L.map('mapid',{ zoomControl: false, scrollWheelZoom: false });
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+        
+
+        // Limits 
+
+        map.fitBounds([
+        [53.97688766594427, 19.99374389648438], // Northeast
+        [38.9869008405745, -16.92031860351563]  // Southwest
+        ]);
+
+        // No dragging
+        map.dragging.disable();
+
+        // Add platforms
+
+        
+        var marker = L.marker([48.86062158639528, 2.295497519718254]).addTo(map);
+        marker.bindPopup("<h2>IFB core</h2><br><b>Adresse</b> :GÉNOSCOPE - 2 RUE GASTON CRÉMIEUX, 91057 - ÉVRY – CEDEX ANR-11-INBS-0013236<br><b>Website</b>: <a href='https://www.france-bioinformatique.fr/' target='_blank'> ici </a>");
+
+        L.marker([48.727356879608855, -3.987521915343077]).addTo(map).bindPopup("<h2>LOREM</h2><br><b>Adresse</b> : XXXXXXX  <br><b>Website</b>: <a href='https://www.france-bioinformatique.fr/' target='_blank'> ici </a>");
+        L.marker([50.607129337660666, 3.1375709447543407]).addTo(map).bindPopup("<h2>Ipsum</h2><br><b>Adresse</b> :XXXXXXX <br><b>Website</b>: <a href='https://www.france-bioinformatique.fr/' target='_blank'> ici </a>");
+        // ... A faire avec une bou
+
+
+
+    </script>
+</body>
+</html>
